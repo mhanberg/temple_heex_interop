@@ -30,19 +30,19 @@ defmodule TempleHeexInteropWeb.PageView do
       I'm in the inner block of the <span class="font-bold text-emerald-500">Temple</span>
       component, being <span class="italic">rendered</span>
       from <span class="font-bold text-orange-500">HEEx</span>!!
-      <:card :let={num}>
+      <:card :let={%{num: num}}>
         I'm the first!
         The num for this card is <%= num %>!
       </:card>
-      <:card :let={num}>
+      <:card :let={%{num: num}}>
         I'm the second!
         The num for this card is <%= num %>!
       </:card>
-      <:card :let={num}>
+      <:card :let={%{num: num}}>
         I'm the third!
         The num for this card is <%= num %>!
       </:card>
-      <:card :let={num}>
+      <:card :let={%{num: num}}>
         I'm the fourth!
         The num for this card is <%= num %>!
       </:card>
@@ -89,22 +89,22 @@ defmodule TempleHeexInteropWeb.PageView do
         "from "
         span class: "font-bold text-emerald-500", do: "Temple!!"
 
-        slot :card, num do
+        slot :card, %{num: num} do
           "I'm the first!"
           "The num for this card is #{num}!"
         end
 
-        slot :card, num do
+        slot :card, %{num: num} do
           "I'm the second!"
           "The num for this card is #{num}!"
         end
 
-        slot :card, num do
+        slot :card, %{num: num} do
           "I'm the third!"
           "The num for this card is #{num}!"
         end
 
-        slot :card, num do
+        slot :card, %{num: num} do
           "I'm the fourth!"
           "The num for this card is #{num}!"
         end
@@ -136,7 +136,7 @@ defmodule TempleHeexInteropWeb.PageView do
         ul class: "list-disc pl-6" do
           for c <- @card do
             li do
-              slot c, Enum.random(0..100)
+              slot c, %{num: Enum.random(0..100)}
             end
           end
         end
