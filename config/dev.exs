@@ -60,7 +60,9 @@ config :temple_heex_interop, TempleHeexInteropWeb.Endpoint,
       ~r"priv/static/.*(js|css|png|jpeg|jpg|gif|svg)$",
       ~r"priv/gettext/.*(po)$",
       ~r"lib/temple_heex_interop_web/(live|views)/.*(ex)$",
-      ~r"lib/temple_heex_interop_web/templates/.*(eex)$"
+      ~r"lib/temple_heex_interop_web/templates/.*(eex)$",
+      ~r"lib/myapp_web/(live|views)/.*(ex|exs)$",
+      ~r"lib/myapp_web/templates/.*(exs)$"
     ]
   ]
 
